@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Inject, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormControl, FormArray, NgForm, FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   username: string = '';
   password: string = '';
@@ -16,7 +18,7 @@ export class AppComponent {
 
   constructor(private http: HttpClient) {}
 
-  fetchMessage() {
+  fetchMessage(form: NgForm) {
     const loginData = { username: this.username, password: this.password };
     
     this.http.post<{ message: string }>('http://localhost:8000/login.php', loginData)
