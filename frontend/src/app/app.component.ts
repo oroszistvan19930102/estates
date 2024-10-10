@@ -1,35 +1,13 @@
-import { Component, Inject, NgModule } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormControl, FormArray, NgForm, FormsModule } from '@angular/forms'
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [RouterModule],  // Import RouterModule to handle routing
+  template: `<router-outlet></router-outlet>`,  // Router outlet for displaying routed views
+  styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
-  username: string = '';
-  password: string = '';
-  message: string = '';
-
-  constructor(private http: HttpClient) {}
-
-  fetchMessage(form: NgForm) {
-    const loginData = { username: this.username, password: this.password };
-    
-    this.http.post<{ message: string }>('http://localhost:8000/login.php', loginData)
-    .subscribe({
-      next: (response: { message: string }) => {
-        this.message = response.message;
-      }, 
-      error: (error) => {
-        console.error('Error:', error);
-        this.message = 'Login failed. Please try again.';
-      }
-    });
-  }
+  // No additional logic here; just serves as a container for the routed views
 }
