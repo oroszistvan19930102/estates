@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Router, RouterOutlet } from '@angular/router';
-
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, RouterOutlet],
+  imports: [
+    FormsModule, 
+    RouterOutlet
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
