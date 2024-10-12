@@ -3,13 +3,16 @@ import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Router, RouterOutlet } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'; // TODO: HttpClientModule is deprecated use provideHttpClient(withInterceptorsFromDi()) as providers instead
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     FormsModule, 
-    RouterOutlet
+    RouterOutlet,
+    HttpClientModule
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']

@@ -13,11 +13,11 @@ export const routes: Routes = [
     {
         path: 'details/:id',
         component: DetailsComponent,
-    }/* ,
+    },
     {   path: '**', 
         redirectTo: 'login', 
         title: 'Unknown paths'
-    } // Handle unknown paths */
+    } // Handle unknown paths
 ];
 
 export default routes;
