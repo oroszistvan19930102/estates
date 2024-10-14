@@ -1,12 +1,4 @@
 services:
-  frontend:
-    build:
-      context: ./frontend
-    ports:
-      - "4200:80"  # Angular app will run on port 4200
-    networks:
-      - app-network
-
   backend:
     build:
       context: ./backend
@@ -14,6 +6,16 @@ services:
       - "8000:8000"  # PHP server will run on port 8000
     networks:
       - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "4200:80"  # Angular app will run on port 4200
+    networks:
+      - app-network
+    depends_on:
+      - backend 
 
   json-server:
     build:
@@ -25,6 +27,8 @@ services:
       - ./estates.json:/data/db.json
     networks:
       - app-network
+    depends_on:
+      - frontend
     command: json-server --watch /data/db.json --host 0.0.0.0
 
 networks:

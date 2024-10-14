@@ -1,14 +1,14 @@
 # Dockerfile.json
-FROM node:16
+FROM node:20
 
 # Create a working directory
-WORKDIR /frontend
+WORKDIR /app
+
+# Copy the estates.json file into the container
+COPY ./frontend/estates.json .
 
 # Install json-server globally
 RUN npm install -g json-server
-
-# Copy the estates.json file into the container
-COPY ./estates.json .
 
 # Expose port 3000
 EXPOSE 3000
