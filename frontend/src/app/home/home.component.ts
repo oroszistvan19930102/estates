@@ -33,7 +33,7 @@ export class HomeComponent {
     }
   
     this.filteredLocationList = this.housingLocationList.filter(
-      housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+      housingLocation => housingLocation?.settlement.toLowerCase().includes(text.toLowerCase())
     );
   }
 }

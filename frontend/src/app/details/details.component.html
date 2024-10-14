@@ -1,17 +1,29 @@
-<article>
-    <img class="listing-photo" [src]="housingLocation?.photo"
-        alt="Exterior photo of {{housingLocation?.name}}"/>
+<article *ngIf="housingLocation">
+    <div class="image-container">
+        <img class="listing-photo" [src]="safeImageUrl" alt="Exterior photos of {{housingLocation?.user_name}}" />
+        <button class="prev-button" (click)="previousImage()">&lt;</button>
+        <button class="next-button" (click)="nextImage()">&gt;</button>
+    </div>
     <section class="listing-description">
-        <h2 class="listing-heading">{{housingLocation?.name}}</h2>
-        <p class="listing-location">{{housingLocation?.city}}, {{housingLocation?.state}}</p>
+        <h2 class="listing-heading">{{housingLocation.user_name}}</h2>
+        <p class="listing-phone">{{housingLocation.user_phone}}</p>
+        <p class="listing-email">{{housingLocation.user_email}}</p>
+        <p class="listing-location">{{housingLocation.settlement}}, {{housingLocation.postal_code}}</p>
     </section>
     <section class="listing-features">
         <h2 class="section-heading">About this housing location</h2>
         <ul>
-        <li>Units available: {{housingLocation?.availableUnits}}</li>
-        <li>Does this location have wifi: {{housingLocation?.wifi}}</li>
-        <li>Does this location have laundry: {{housingLocation?.laundry}}</li>
+        <li>Price: {{housingLocation.price}}</li>
+        <li>Size: {{housingLocation.size}}</li>
+        <li>Condition: {{housingLocation.state}}</li>
+        <li>Type: {{housingLocation.type}}</li>
+        <li>Status: {{housingLocation.status}}</li>
+        <li>Utilities: {{housingLocation.utilities}}</li>
+        <li>Plot: {{housingLocation.plot}}</li>
+        <li>Rentable: {{isRentable ? 'Yes' : 'Shiiit'}}</li>
         </ul>
+        <p class="section-heading">Description:</p>
+        <p>{{housingLocation.description}}</p>
     </section>
     <section class="listing-apply">
         <h2 class="section-heading">Apply now to live here</h2>

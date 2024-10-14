@@ -1,0 +1,64 @@
+html, body {
+    height: 100%; /* Ensure full height is used */
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Font family for the application */
+    background: linear-gradient(to right, #4facfe, #00f2fe); /* Gradient background */
+}
+
+.content {
+    display: flex; /* Use Flexbox for alignment */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
+}
+
+h2 {
+    color: #fff; /* Heading color */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+form {
+    background-color: #fff; /* White background for the form */
+    padding: 30px; /* Increased padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    width: 300px; /* Set a width for the form */
+    text-align: center; /* Center text in the form */
+}
+
+label {
+    font-weight: bold; /* Bold labels */
+    color: #333; /* Dark gray label color */
+    display: block; /* Make labels block elements */
+    margin: 10px 0 5px; /* Space around labels */
+}
+
+input {
+    width: 100%; /* Full width of the input */
+    padding: 10px; /* Padding inside the input */
+    margin-bottom: 20px; /* Space below input */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+input:focus {
+    border-color: #4facfe; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    background-color: #4facfe; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove border */
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+button:hover {
+    background-color: #00f2fe; /* Change background color on hover */
+}

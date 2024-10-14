@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $input['password'] ?? '';
 
     // Simple authentication check
-    if ($username == 'iorosz') {
+    if ($username == 'root' && $password == 'root') {
         echo json_encode(['status' => 'success', 'message' => 'Login successful']);
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Invalid username']);

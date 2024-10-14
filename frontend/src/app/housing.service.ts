@@ -6,9 +6,6 @@ import { HousingLocation } from './housinglocation';
 })
 export class HousingService {
   url = 'http://localhost:3000/locations';
-
-
-  constructor() { }
   
   async getAllHousingLocations(): Promise<HousingLocation[]> {
     const data = await fetch(this.url);
@@ -18,6 +15,15 @@ export class HousingService {
   async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
     const data = await fetch(`${this.url}/${id}`);
     return await data.json() ?? {};
+  }
+
+  async getRentability(rentability: string): Promise<boolean> {
+    const house = await this.getHousingLocationById(parseInt(rentability, 10));
+    if(house?.rentability.toLowerCase() === '1'){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   submitApplication(firstName: string, lastName: string, email: string) {
