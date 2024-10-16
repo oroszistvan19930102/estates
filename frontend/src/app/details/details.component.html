@@ -1,6 +1,6 @@
 <article *ngIf="housingLocation">
     <div class="image-container">
-        <img class="listing-photo" [src]="safeImageUrl" alt="Exterior photos of {{housingLocation?.user_name}}" />
+        <img class="listing-photo" [src]="safeImageUrl" alt="Exterior photos of {{housingLocation.user_name}}" />
         <button class="prev-button" (click)="previousImage()">&lt;</button>
         <button class="next-button" (click)="nextImage()">&gt;</button>
     </div>

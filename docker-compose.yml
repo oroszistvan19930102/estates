@@ -11,7 +11,7 @@ services:
     build:
       context: ./frontend
     ports:
-      - "4200:80"  # Angular app will run on port 4200
+      - "4200:4000"  # Angular app will run on port 4200
     networks:
       - app-network
     depends_on:
