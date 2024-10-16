@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"  # PHP server will run on port 8000
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "4200:4000"  # Angular app will run on port 4200
+    networks:
+      - app-network
+    depends_on:
+      - backend 
+
+  json-server:
+    build:
+      context: .  # Adjust this if Dockerfile is in a different folder
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./estates.json:/data/db.json
+    networks:
+      - app-network
+    depends_on:
+      - frontend
+    command: json-server --watch /data/db.json --host 0.0.0.0
+
+networks:
+  app-network:
+    driver: bridge
